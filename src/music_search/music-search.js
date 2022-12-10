@@ -9,7 +9,7 @@ const MusicSearch = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findMovieBySearchTermThunk(searchTerm))
-    }, [])
+    })
     return (
         <>
             <h1>Music Song Search</h1>
@@ -37,7 +37,7 @@ const MusicSearch = () => {
                                 }))
                             }} className="float-end bi bi-hand-thumbs-up"></i>
                             <i className="float-end bi bi-hand-thumbs-down me-2"></i> */}
-                            <img src={track.track.images.background} height={50}/>
+                            <img alt="picture" src={track.track.images.background} height={50}/>
                             <Link to={`/details/${track.track.key}`}>
                                 {track.track.title}
                             </Link>

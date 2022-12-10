@@ -3,7 +3,6 @@ import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {findUserByIdThunk} from "./music-users-thunk";
 
-import {Link} from "react-router-dom";
 
 const PublicProfile = () => {
     const {uid} = useParams()

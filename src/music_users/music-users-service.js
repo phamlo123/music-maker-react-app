@@ -40,5 +40,5 @@ export const createUser = () => {
 
 }
 
-const deleteUser = () => {}
-const updateUser = () => {}
+// const deleteUser = () => {}
+// const updateUser = () => {}

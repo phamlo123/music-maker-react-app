@@ -1,6 +1,6 @@
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {findMovieByImdbIdThunk} from "./music-thunks";
 // import {createReviewThunk, findReviewsByMovieThunk} from "../reviews/reviews-thunks";
 
@@ -11,12 +11,11 @@ const MusicDetails = () => {
     // const [review, setReview] = useState('')
     // const {reviews} = useSelector((state) => state.reviews)
     const {details} = useSelector((state) => state.tracks)
-    const {currentUser} = useSelector((state) => state.users)
+    // const {currentUser} = useSelector((state) => state.users)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(findMovieByImdbIdThunk(key))
-        // dispatch(findReviewsByMovieThunk(imdbID))
-    },[])
+        dispatch(findMovieByImdbIdThunk(key))})
+
     // const handlePostReviewBtn = () => {
     //     dispatch(createReviewThunk({
     //         review,
