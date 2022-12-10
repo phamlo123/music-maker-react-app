@@ -7,7 +7,7 @@ const Users = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllUsersThunk())
-    }, [])
+    })
     return(
         <>
             <h1> Welcome! These are the all the people who use our Music Maker :) </h1>
