@@ -2,6 +2,7 @@ import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {findMovieByImdbIdThunk} from "./music-thunks";
+import React from "react";
 // import {createReviewThunk, findReviewsByMovieThunk} from "../reviews/reviews-thunks";
 
 
@@ -38,6 +39,9 @@ const MusicDetails = () => {
                     {/* <img src={details.Poster}/> */}
                 </div>
             </div>
+            <div>
+                
+            </div>
             {/* {
                 currentUser &&
                 <div>
@@ -62,6 +66,9 @@ const MusicDetails = () => {
             */
             <pre>
                 {JSON.stringify(details, null, 2)}
+                <button>
+                    Click me
+                </button>
             </pre> }
         </>
     )

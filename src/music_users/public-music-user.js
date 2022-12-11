@@ -13,6 +13,7 @@ const PublicProfile = () => {
     useEffect(() => {
         dispatch(findUserByIdThunk(uid))
     }, [uid])
+
     return(
         <>
             <h1> Hi </h1>
