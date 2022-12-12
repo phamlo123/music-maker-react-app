@@ -111,7 +111,7 @@ export const createSong = async (song) => {
     let newSong = {}
     newSong.artist_name = song.artists[0].name
     newSong.track_name = song.artists[0].name
-    newSong.track_id = song.artists[0].id
+    newSong.track_id = song.id
     newSong.duration = song.duration_ms
     newSong.album = song.album.name
     const response = await axios.post(BACKEND, newSong)
