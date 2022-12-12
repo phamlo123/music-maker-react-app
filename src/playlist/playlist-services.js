@@ -46,3 +46,8 @@ export const deletePlaylist = async (pid) => {
     const status = response.data
     return status;
 }
+
+export const findPlaylistForUser = async (uid) => {
+    const response = await axios.get(`${PLAYIST_API_URL}/users/${uid}`)
+    return response.data
+}

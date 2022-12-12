@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {createPlaylistThunk, deletePlaylistThunk, findAllPlaylistThunk, addSongToPlaylistThunk, removeSongFromPlaylistThunk, findPlaylistByIdThunk} from "./playlist-thunks.js";
+import {createPlaylistThunk, deletePlaylistThunk, findAllPlaylistThunk, addSongToPlaylistThunk, removeSongFromPlaylistThunk, findPlaylistByIdThunk, findPlaylistForUserThunk} from "./playlist-thunks.js";
 
 
 const playlistsReducer = createSlice({
@@ -8,6 +8,7 @@ const playlistsReducer = createSlice({
         playlists: [], 
         loading: false,
         currentPlaylist: null,
+        customPlaylists: []
     },
     extraReducers: {
         [findPlaylistByIdThunk.fulfilled]: (state, action) => {
@@ -41,6 +42,9 @@ const playlistsReducer = createSlice({
                 ...action.payload
               }
         },
+        [findPlaylistForUserThunk.fulfilled]: (state, action) => {
+            state.customPlaylists = action.payload
+        }
     },
     reducers: {
 
