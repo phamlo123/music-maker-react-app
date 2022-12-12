@@ -20,13 +20,16 @@ const Playlists = () => {
             }
             <ul className="list-group">
                 <li className="list-group-item">
-                    <button className="btn btn-success float-end" onClick={() => {
+                    { currentUser &&
+                        <button className="btn btn-success float-end" onClick={() => {
                         dispatch(createPlaylistThunk(
                             {
-                                name: playlist.title
-                            }
-                        ))
+                                name: playlist.name,
+                                owner: currentUser
+                            }))
                     }}>Create</button>
+                    }
+                    
                     <input
                         className="form-control w-75"
                         onChange={(e) =>

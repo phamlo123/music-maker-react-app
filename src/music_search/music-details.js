@@ -9,7 +9,7 @@ import { findReviewsBySongThunk } from "../reviews/reviews-thunk";
 const MusicDetails = () => {
     const {key} = useParams()
     const [review, setReview] = useState('')
-    const {reviews} = useSelector((state) => state.reviews)
+    const {reviews_by_songs} = useSelector((state) => state.reviews)
     const {details} = useSelector((state) => state.tracks)
     const {currentUser} = useSelector((state) => state.users)
     const dispatch = useDispatch()
@@ -53,11 +53,11 @@ const MusicDetails = () => {
             }
             <ul className="list-group">
                 {
-                    reviews.map((review) =>
+                    reviews_by_songs.map((review) =>
                         <li className="list-group-item">
                             {review.review}
-                            <Link to={`/profile/${review.author._id}`} className="float-end">
-                                {review.author.username}
+                            <Link to={`/profile/${review.user._id}`} className="float-end">
+                                {review.user.username}
                             </Link>
                         </li>
                     )

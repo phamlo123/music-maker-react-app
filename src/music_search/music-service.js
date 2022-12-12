@@ -100,7 +100,6 @@ export const getSongByIdSpotify = async (sid) => {
           'Authorization': `Bearer ${access_token}`
         }
       });
-      console.log(response.data)
       return response.data;
 
     }catch(error){

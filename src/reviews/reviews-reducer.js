@@ -4,17 +4,18 @@ import {createReviewThunk, findReviewsBySongThunk, findReviewsByUserThunk} from 
 const reviewsReducer = createSlice({
     name: 'reviews',
     initialState: {
-        reviews: []
+        reviews_by_songs: [],
+        reviews_by_users: []
     },
     extraReducers: {
         [createReviewThunk.fulfilled]: (state, action) => {
-            state.reviews.push(action.payload)
+            state.reviews_by_songs.push(action.payload)
         },
         [findReviewsBySongThunk.fulfilled]: (state, action) => {
-            state.reviews = action.payload
+            state.reviews_by_songs = action.payload
         },
         [findReviewsByUserThunk.fulfilled]: (state, action) => {
-            state.reviews = action.payload
+            state.reviews_by_users = action.payload
         }
     },
     reducers: {

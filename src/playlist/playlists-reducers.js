@@ -30,11 +30,8 @@ const playlistsReducer = createSlice({
         [addSongToPlaylistThunk.fulfilled]: (state, action) => {
             state.loading = false
             const pid = state.playlists.findIndex((p) => p._id === action.payload._id)
-            state.playlists[pid] = {
-                ...state.playlists[pid],
-                ...action.payload
-            }
-            // state.currentPlaylist=action.payload
+            state.currentPlaylist = action.payload
+            console.log(action.payload)
         },
         [removeSongFromPlaylistThunk.fulfilled]: (state, action) => {
             state.loading = false
