@@ -16,8 +16,7 @@ const PublicProfile = () => {
 
     return(
         <>
-            <h1> Hi </h1>
-            <h1>{publicProfile && publicProfile.username}</h1>
+            <h1> Welcome to {publicProfile && publicProfile.username} public profile page</h1>
             
         </>
     )
