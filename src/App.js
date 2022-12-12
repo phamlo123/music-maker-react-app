@@ -21,7 +21,8 @@ import Playlists from "./playlist/playlists-summary";
 import React from "react";
 import playlistsReducers from "./playlist/playlists-reducers";
 import PlaylistDetail from "./playlist/playlist-detail";
-import { Home } from "./home";
+import { Home } from "./home/home";
+import whosReducer from "./home/who-reducer.js";
 import SongSearch from "./playlist/search-song";
 import reviewsReducer from "./reviews/reviews-reducer";
 const store = configureStore({
@@ -29,7 +30,8 @@ const store = configureStore({
       tracks: musicReducer,
       users: usersReducer,
       playlists: playlistsReducers,
-      reviews:reviewsReducer
+      reviews:reviewsReducer,
+      whos: whosReducer
   }
 })
 
