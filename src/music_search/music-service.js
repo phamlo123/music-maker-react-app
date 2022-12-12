@@ -110,7 +110,7 @@ export const getSongByIdSpotify = async (sid) => {
 export const createSong = async (song) => {
     let newSong = {}
     newSong.artist_name = song.artists[0].name
-    newSong.track_name = song.artists[0].name
+    newSong.track_name = song.name
     newSong.track_id = song.id
     newSong.duration = song.duration_ms
     newSong.album = song.album.name
