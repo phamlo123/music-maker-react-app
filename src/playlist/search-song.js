@@ -6,10 +6,12 @@ import { addSongToPlaylistThunk } from "./playlist-thunks";
 import { createSongThunk } from "../music_search/music-thunks";
 import React from "react";
 import { Link } from "react-router-dom";
+import CurrentUser from "../music_users/current-music-user";
 
 const SongSearch = () => {
     const [searchTerm, setSearchTerm] = useState('nothingnow')
     const {local_tracks} = useSelector((state) => state.tracks)
+    const {currentUser} = useSelector((state) => state.users)
     const {spotify_tracks} = useSelector((state) => state.tracks)
     const {currentPlaylist} = useSelector((state) => state.playlists)
     const dispatch = useDispatch()
@@ -17,7 +19,6 @@ const SongSearch = () => {
     //     dispatch(findSongByNameLocalThunk(searchTerm))
     // }, [])
     // console.log(createdSong)
-    
     return (
         <>
             <h1>Search for Songs</h1>
@@ -38,36 +39,6 @@ const SongSearch = () => {
                         value={searchTerm}/>
                 </li>
                 {
-                    local_tracks.data && local_tracks.data.map((track, index) =>
-                        <li key={track._id} className="list-group-item">
-                            <div className="row">
-                                <div className="col-1">
-                                    {index + 1}
-                                </div>
-                                <div className="col-9">
-                                    <div>
-                                        Track Name: {track.track_name}
-                                    </div>
-                                    <div>
-                                        Artist Name: {track.artist_name}    
-                                    </div>
-                                    <div>
-                                        Genre: {track.genre}    
-                                    </div>
-                                </div>
-                                <div className="col-2">
-                                    <button className="btn btn-primary float-end" onClick={() => {
-                                            }}>
-                                        Add To Playlist
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </li>
-                    )
-                }
-
-                {
                     spotify_tracks && spotify_tracks.map((track, index) =>
                         <li key={track.id} className="list-group-item">
                                 <div className="row">
@@ -86,7 +57,7 @@ const SongSearch = () => {
                                         </div>
                                     </div>
                                     <div className="col-2">
-                                        {   currentPlaylist &&
+                                        {   currentPlaylist && currentUser && currentUser.username == currentPlaylist.owner.username && 
                                             <button className="btn btn-primary float-end" onClick={() => {
                                                 let params = {pid: currentPlaylist._id, song: track}
                                                 dispatch(addSongToPlaylistThunk(params))

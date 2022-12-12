@@ -26,7 +26,7 @@ export const addSongToPlaylist = async (pid, song) => {
     let newSong = {}
     newSong.artist_name = song.artists[0].name
     newSong.track_name = song.name
-    newSong.track_id = song.artists[0].id
+    newSong.track_id = song.id
     newSong.duration = song.duration_ms
     newSong.album = song.album.name
     const response = await axios.post(`${PLAYIST_API_URL}/addSong/${pid}`, newSong)
@@ -35,7 +35,9 @@ export const addSongToPlaylist = async (pid, song) => {
 }
 
 export const removeSongFromPlaylist = async (pid, song) => {
-    const response = await axios.patch(`${PLAYIST_API_URL}/removeSong/${pid}`, song)
+    let newSong = {}
+    newSong.track_id = song
+    const response = await axios.patch(`${PLAYIST_API_URL}/removeSong/${pid}`, newSong)
     const playlist = response.data
     return playlist
 }
