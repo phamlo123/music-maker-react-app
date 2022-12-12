@@ -36,7 +36,6 @@ export const findMovieByImdbId = async (key) => {
     };
     
     return axios.request(options).then(function (response) {
-        console.log(response.data);
         return response.data
     }).catch(function (error) {
         console.error(error);
@@ -89,4 +88,36 @@ export const searchForSongsSpotify = async (searchTerm) => {
       console.log(error);
     }  
 };
+
+export const getSongByIdSpotify = async (sid) => {
+    //request token using getAuth() function
+    const access_token = await Authorize();
+  
+    const api_url = `https://api.spotify.com/v1/tracks/${sid}`;
+    try{
+      const response = await axios.get(api_url, {
+        headers: {
+          'Authorization': `Bearer ${access_token}`
+        }
+      });
+      console.log(response.data)
+      return response.data;
+
+    }catch(error){
+      console.log(error);
+    }  
+};
+
+export const createSong = async (song) => {
+    let newSong = {}
+    newSong.artist_name = song.artists[0].name
+    newSong.track_name = song.artists[0].name
+    newSong.track_id = song.artists[0].id
+    newSong.duration = song.duration_ms
+    newSong.album = song.album.name
+    const response = await axios.post(BACKEND, newSong)
+    const status = response.data
+    return status
+}
+
 

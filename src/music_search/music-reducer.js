@@ -1,12 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findSongBySearchTermThunk, findMovieByImdbIdThunk, findSongByNameLocalThunk, searchForSongsSpotifyThunk} from "./music-thunks";
+import {findSongBySearchTermThunk, findMovieByImdbIdThunk, findSongByNameLocalThunk, searchForSongsSpotifyThunk, createSongThunk, getSongByIdSpotifyThunk} from "./music-thunks";
 
 const initialState = {
     tracks: [],
     loading: false,
     local_tracks: [],
     details: {},
-    spotify_tracks: []
+    spotify_tracks: [], 
+    createdSong: null
 }
 
 const musicReducer = createSlice({
@@ -25,7 +26,12 @@ const musicReducer = createSlice({
         [searchForSongsSpotifyThunk.fulfilled]: (state, action) => {
             state.spotify_tracks = action.payload
         },
-
+        [createSongThunk.fulfilled]: (state, action) => {
+            state.createdSong = action.payload
+        },
+        [getSongByIdSpotifyThunk.fulfilled]: (state, action) => {
+            state.details = action.payload
+        },
     },
     reducers: {
         

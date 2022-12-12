@@ -1,48 +1,48 @@
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {findMovieByImdbIdThunk} from "./music-thunks";
+import {getSongByIdSpotifyThunk} from "./music-thunks";
 import React from "react";
-// import {createReviewThunk, findReviewsByMovieThunk} from "../reviews/reviews-thunks";
-
-
-
+import { Link } from "react-router-dom";
+import { createReviewThunk } from "../reviews/reviews-thunk";
+import { findReviewsBySongThunk } from "../reviews/reviews-thunk";
 const MusicDetails = () => {
     const {key} = useParams()
-    // const [review, setReview] = useState('')
-    // const {reviews} = useSelector((state) => state.reviews)
+    const [review, setReview] = useState('')
+    const {reviews} = useSelector((state) => state.reviews)
     const {details} = useSelector((state) => state.tracks)
     const {currentUser} = useSelector((state) => state.users)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(findMovieByImdbIdThunk(key))
-        // dispatch(findReviewsByMovieThunk(imdbID))
+        dispatch(getSongByIdSpotifyThunk(key))
+        dispatch(findReviewsBySongThunk(key))
     },[])
-    // const handlePostReviewBtn = () => {
-    //     dispatch(createReviewThunk({
-    //         review,
-    //         imdbID
-    //     }))
-    // }
+    const handlePostReviewBtn = () => {
+        dispatch(createReviewThunk({
+            review,
+            details
+        }))
+    }
     return(
         <>
-            <h1> hi </h1>
-            <div className="row">
+         <div className="row">
                 <div className="col">
                     <ul className="list-group">
-                        <h1> {details.subtitle}</h1>
-                        {/* <li className="list-group-item">Director: {details.Director}</li>
-                        <li className="list-group-item">Released: {details.Released}</li> */}
+                        <h1> name: {details.name}</h1>
+                        
+                        <div>
+                            Album: {details.album && details.album.name}    
+                        </div>
+                        <div>
+                            Artist: {details.artists && details.artists[0].name}                            
+                        </div>             
                     </ul>
-                </div>
-                <div className="col">
-                    {/* <img src={details.Poster}/> */}
                 </div>
             </div>
             <div>
                 
             </div>
-            {/* {
+            {
                 currentUser &&
                 <div>
                     <textarea
@@ -63,14 +63,9 @@ const MusicDetails = () => {
                     )
                 }
             </ul>
-            */
-            <pre>
-                {JSON.stringify(details, null, 2)}
-                <button>
-                    Click me
-                </button>
-            </pre> }
         </>
     )
 }
+
+
 export default MusicDetails

@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {findSongBySearchTermThunk} from "./music-thunks";
+import {searchForSongsSpotifyThunk} from "./music-thunks";
 import {Link} from "react-router-dom";
 import React from "react";
 const MusicSearch = () => {

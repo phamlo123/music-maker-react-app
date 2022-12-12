@@ -2,8 +2,6 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {findAllPlaylist, createPlaylist, updatePlaylist, addSongToPlaylist, removeSongFromPlaylist, deletePlaylist, findPlaylistById} from "./playlist-services";
 
 
-
-
 export const createPlaylistThunk = createAsyncThunk(
     'createPlaylist',
     (newPlaylist) => createPlaylist(newPlaylist)
@@ -21,14 +19,14 @@ export const findPlaylistByIdThunk = createAsyncThunk(
 
 export const updatePlaylistThunk = {}
 
-export const addSongToPlaylistThunk = createAsyncThunk(
+export const addSongToPlaylistThunk = createAsyncThunk( 
     'addSongToPlaylist',
-    (pid, song) => addSongToPlaylist(pid, song)
+    (params) => addSongToPlaylist(params.pid, params.song)
 )
 
 export const removeSongFromPlaylistThunk = createAsyncThunk(
     'removeSongFromPlaylist',
-    (pid, song) => removeSongFromPlaylist(pid, song)
+    (params) => removeSongFromPlaylist(params.pid, params.song)
 )
 
 export const deletePlaylistThunk = createAsyncThunk(

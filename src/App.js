@@ -15,18 +15,21 @@ import PublicProfile from "./music_users/public-music-user.js";
 import Profile from "./music_users/music-user-profile.js";
 import musicReducer from "./music_search/music-reducer.js";
 // import MusicSearch from "./music_search/music-search.js";
+import 'bootswatch/dist/lux/bootstrap.min.css';
 import MusicDetails from "./music_search/music-details.js";
 import Playlists from "./playlist/playlists-summary";
 import React from "react";
 import playlistsReducers from "./playlist/playlists-reducers";
 import PlaylistDetail from "./playlist/playlist-detail";
 import { Home } from "./home";
-
+import SongSearch from "./playlist/search-song";
+import reviewsReducer from "./reviews/reviews-reducer";
 const store = configureStore({
   reducer: {
       tracks: musicReducer,
       users: usersReducer,
-      playlists: playlistsReducers
+      playlists: playlistsReducers,
+      reviews:reviewsReducer
   }
 })
 
@@ -42,7 +45,7 @@ function App() {
                 <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/users" element={<Users/>}/>
-                {/* <Route path="/search" element={<MusicSearch/>}/> */}
+                <Route path="/search" element={<SongSearch/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/profile" element={

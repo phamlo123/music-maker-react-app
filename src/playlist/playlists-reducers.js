@@ -34,6 +34,7 @@ const playlistsReducer = createSlice({
                 ...state.playlists[pid],
                 ...action.payload
             }
+            // state.currentPlaylist=action.payload
         },
         [removeSongFromPlaylistThunk.fulfilled]: (state, action) => {
             state.loading = false
