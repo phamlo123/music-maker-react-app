@@ -17,12 +17,16 @@ const Profile = () => {
                 currentUser &&
                 <h2>Welcome back, {currentUser.username}</h2>
             }
+
+            <div>
+                email: {currentUser.email}
+            </div>
+            <PlaylistsInProfile/>
             <button
-                className="btn btn-danger"
+                className="btn btn-danger float-end pt-2"
                 onClick={handleLogoutBtn}>
                 Logout
             </button>
-            <PlaylistsInProfile/>
         </>
     )
 }

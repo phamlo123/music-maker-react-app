@@ -7,42 +7,65 @@ const CustomPlaylists = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {customPlaylists} = useSelector((state) => state.playlists)
     const [playlist, setPlaylist] = useState({name: 'New Playlist'})
+    const [featured, setFeatured] = useState({featured: "false"})
     const dispatch = useDispatch()
     useEffect(() => {
         currentUser && dispatch(findPlaylistForUserThunk(currentUser._id))
     }, [])
     return(
         <>
-            <h1>Playlists</h1>
+            
             {
                 currentUser &&
                 <h2>Welcome {currentUser.username} </h2>
             }
-            <ul className="list-group">
-                <li className="list-group-item">
-                    { currentUser &&
-                        <button className="btn btn-success float-end" onClick={() => {
-                        dispatch(createPlaylistThunk(
-                            {
-                                name: playlist.name,
-                                owner: currentUser
-                            }))
-                    }}>Create</button>
-                    }
-                    
-                    <input
-                        className="form-control w-75"
-                        onChange={(e) =>
-                            setPlaylist({...playlist, name: e.target.value})}
-                        value={playlist.name}/>
-                </li>
-                {
-                    customPlaylists.map((playlist) =>
-                        <PlaylistSummaryItem key={playlist._id} playlist={playlist}/>
-                    )
-                }
+            <div className="row">
+                <div className="row">
+                    <div className="col-8">
+                        <input
+                            className="form-control w-75 float-start"
+                            onChange={(e) =>
+                                setPlaylist({...playlist, name: e.target.value})}
+                            value={playlist.name}/>
+                    </div>
+                    <div className="col-2">
+                        {
+                        currentUser && currentUser.featured &&
+                        <select className="form-select float-end"
+                                onChange={(e) => setFeatured({...featured, featured:e.target.value})}>
+                              <option value="false">reg</option>
+                              <option value="featured">fea</option>
+                        </select>
+                        }
+                    </div>
 
-            </ul>
+                    <div className="col-2">
+                        { currentUser &&
+                            <button className="btn btn-primary float-end" onClick={() => {
+                            dispatch(createPlaylistThunk(
+                                {
+                                    name: playlist.name,
+                                    owner: currentUser,
+                                    featured: featured.featured
+                                }))
+                        }}>Create</button>
+                        }
+                    </div>
+                </div>
+                
+                <div className="list-group">
+                    <li className="list-group-item"> 
+                        <h1> Playlists</h1>
+                    </li>
+                    {
+                        customPlaylists.map((playlist) =>
+                            <PlaylistSummaryItem key={playlist._id} playlist={playlist}/>
+                        )
+                    }    
+                </div>
+                
+
+            </div>
         </>
     )
 }

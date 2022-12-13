@@ -35,11 +35,11 @@ const PlaylistSummaryItem = (
        <div>by {playlist.owner.username}</div>
      </div>
      <div className="float-end">
-        <button className="btn btn-success float-end" onClick={() => navigate(`/playlists/${playlist._id}`)}>See Detail</button>
+        <button className="btn btn-primary float-end" onClick={() => navigate(`/playlists/${playlist._id}`)}>See Detail</button>
      </div>
-     { currentUser && currentUser.username==playlist.owner.username && location.pathname.includes("profile") &&
+     { currentUser && currentUser.username===playlist.owner.username && location.pathname.includes("profile") &&
       <div className="float-end">
-        <button className="btn btn-success float-end" onClick={() => dispatch(deletePlaylistThunk(playlist._id))}>Delete</button>
+        <button className="btn btn-primary float-end" onClick={() => dispatch(deletePlaylistThunk(playlist._id))}>Delete</button>
       </div>
      }
    </div>

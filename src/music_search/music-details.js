@@ -69,12 +69,18 @@ const MusicDetails = () => {
                         </div>
                         <div>
                             Artist: {details.artists && details.artists[0].name}                            
+                        </div>
+                        <div>
+                            Popularity: {details.popularity}
+                        </div>
+                        <div>
+                            Duration: {details.duration_ms/1000} sec
                         </div>             
                     </ul>
                 </div>
             </div>
             <div>
-                
+            
             </div>
             {
                 currentUser &&
@@ -82,6 +88,7 @@ const MusicDetails = () => {
                     <textarea
                         onChange={(e) => setReview(e.target.value)}
                         className="form-control"></textarea>
+                    <div className="pt-2"></div>
                     <button onClick={handlePostReviewBtn}>Post Review</button>
                 </div>
             }
@@ -97,6 +104,7 @@ const MusicDetails = () => {
                     )
                 }
             </ul>
+            <div className="pt-2"></div>
             {details.preview_url && <PlaySong key={details.id} url={details.preview_url}/>}
         </>
     )

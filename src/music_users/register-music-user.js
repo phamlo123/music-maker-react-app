@@ -3,14 +3,18 @@ import {useDispatch, useSelector} from "react-redux";
 import {registerThunk} from "./music-users-thunk";
 import {current} from "@reduxjs/toolkit";
 import {Navigate} from "react-router";
+import React from "react";
 
 const Register = () => {
     const {currentUser} = useSelector((state) => state.users)
     const [username, setUsername] = useState('alice')
+    const [email, setEmail] = useState('email@gmail.com')
     const [password, setPassword] = useState('alice1234')
+    const [featured, setFeatured] = useState("false")
+    
     const dispatch = useDispatch()
     const handleRegisterBtn = () => {
-        dispatch(registerThunk({username, password}))
+        dispatch(registerThunk({username, password, email, featured}))
     }
 
     if(currentUser) {
@@ -20,11 +24,32 @@ const Register = () => {
     return(
         <>
             <h1>Register</h1>
-            <input
+            <div>
+                Username
+                <input
                 onChange={(e) => setUsername(e.target.value)}
                 className="form-control"
                 placeholder="username"
                 value={username}/>
+            </div>
+            <div>
+                Email
+                <input
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-control"
+                placeholder="email"
+                value={email}/>    
+            </div>
+            <div>
+                Type
+                <br/>
+                <select id="type" name="types"
+                onChange={(e) => setFeatured(e.target.value)}> 
+                    <option value="false">Regular</option>
+                    <option value="featured">Featured</option>
+                </select>
+            </div>
+            password      
             <input
                 onChange={(e) => setPassword(e.target.value)}
                 className="form-control"
