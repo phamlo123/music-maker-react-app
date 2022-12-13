@@ -32,7 +32,6 @@ const WhoToFollowList = () => {
     currentUser && dispatch(getWhoToFollowThunk(currentUser._id))
   }, [])
 
-  console.log(whoToFollow)
     return(
     <ul className="list-group">
         <li className="list-group-item">

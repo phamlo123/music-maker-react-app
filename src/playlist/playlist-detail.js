@@ -33,7 +33,7 @@ const PlaylistDetail = () => {
                             duration: {song.duration_ms} ms
                         </div>
                         <div className="col-2">
-                            {   currentPlaylist && currentUser && currentUser.username == currentPlaylist.owner.username && 
+                            {   currentPlaylist && currentUser && currentUser.username === currentPlaylist.owner.username && 
                                 <button className="btn btn-primary float-end" onClick={() => {
                                     let params = {pid: currentPlaylist._id, song: song._id}
                                     dispatch(removeSongFromPlaylistThunk(params))

@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {logoutThunk} from "./music-users-thunk";
 import {useNavigate} from "react-router";
 import React from "react";
+import PlaylistsInProfile from "../playlist/playlists-in-profile";
 const Profile = () => {
     const navigate = useNavigate()
     const {currentUser} = useSelector((state) => state.users)
@@ -21,6 +22,7 @@ const Profile = () => {
                 onClick={handleLogoutBtn}>
                 Logout
             </button>
+            <PlaylistsInProfile/>
         </>
     )
 }

@@ -6,6 +6,40 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { createReviewThunk } from "../reviews/reviews-thunk";
 import { findReviewsBySongThunk } from "../reviews/reviews-thunk";
+
+
+const useAudio = (url) => {
+    const [audio] = useState(new Audio(url));
+    const [playing, setPlaying] = useState(false);
+  
+    const toggle = () => setPlaying(!playing);
+  
+    useEffect(() => {
+        playing ? audio.play() : audio.pause();
+      },
+      [playing]
+    );
+  
+    useEffect(() => {
+      audio.addEventListener('ended', () => setPlaying(false));
+      return () => {
+        audio.removeEventListener('ended', () => setPlaying(false));
+      };
+    }, []);
+  
+    return [playing, toggle];
+  };
+  
+const PlaySong = ({ url }) => {
+    const [playing, toggle] = useAudio(url);
+
+    return (
+        <div>
+        <button onClick={toggle}>{playing ? "Pause" : "Play"}</button>
+        </div>
+    );
+};
+  
 const MusicDetails = () => {
     const {key} = useParams()
     const [review, setReview] = useState('')
@@ -63,6 +97,7 @@ const MusicDetails = () => {
                     )
                 }
             </ul>
+            {details.preview_url && <PlaySong key={details.id} url={details.preview_url}/>}
         </>
     )
 }

@@ -53,3 +53,9 @@ export const findPlaylistForUser = async (uid) => {
     const response = await axios.get(`${PLAYIST_API_URL}/users/${uid}`)
     return response.data
 }
+
+export const findPlaylistByUser = async (uid) => {
+    const response = await axios.get(`${PLAYIST_API_URL}/users/by/${uid}`)
+    return response.data
+}
+

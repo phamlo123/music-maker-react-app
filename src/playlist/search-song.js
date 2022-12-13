@@ -27,7 +27,6 @@ const SongSearch = () => {
                     <button
                         className="btn btn-primary float-end"
                         onClick={() => {
-                            dispatch(findSongByNameLocalThunk(searchTerm))
                             dispatch(searchForSongsSpotifyThunk(searchTerm))
                         }}>Search
                     </button>
@@ -57,7 +56,7 @@ const SongSearch = () => {
                                         </div>
                                     </div>
                                     <div className="col-2">
-                                        {   currentPlaylist && currentUser && currentUser.username == currentPlaylist.owner.username && 
+                                        {   currentPlaylist && currentUser && currentUser.username === currentPlaylist.owner.username && 
                                             <button className="btn btn-primary float-end" onClick={() => {
                                                 let params = {pid: currentPlaylist._id, song: track}
                                                 dispatch(addSongToPlaylistThunk(params))
