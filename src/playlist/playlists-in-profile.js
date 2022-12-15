@@ -23,7 +23,7 @@ const PlaylistsInProfile = () => {
     }, [])
     return(
         <>
-            <h1>Playlists</h1>
+            <h1 className="pt-3">Playlists</h1>
             <ul className="list-group">
                 <li className="list-group-item">
                     { currentUser &&

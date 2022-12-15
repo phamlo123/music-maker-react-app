@@ -4,9 +4,9 @@ import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import { getPeopleUserFollowThunk, unfollowThunk } from "./who-thunk.js";
 import { Link } from "react-router-dom";
-const FolloweeItem = (
+export const FolloweeItem = (
  {
-   who = { username: 'NASA', _id: "ud"}
+   who   = { username: 'NASA', _id: "ud", currentUserFollowing: "123"}
  }
 ) => {
   const dispatch = useDispatch();
@@ -21,7 +21,11 @@ const FolloweeItem = (
       </Link>
     </div>
     <div className="col-2">
-        <button className="btn btn-primary rounded-pill float-end" onClick={() => {dispatch(unfollowThunk(a))}}>Unfollow</button>
+        {currentUser &&
+            <button className="btn btn-primary rounded-pill float-end" onClick={() => {
+                dispatch(unfollowThunk(a))
+            }}>Unfollow</button>
+        }
     </div>
    </div>
   </li>

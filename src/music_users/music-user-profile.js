@@ -3,6 +3,7 @@ import {logoutThunk} from "./music-users-thunk";
 import {useNavigate} from "react-router";
 import React from "react";
 import PlaylistsInProfile from "../playlist/playlists-in-profile";
+import ProfileFollowing from "./profile-following";
 const Profile = () => {
     const navigate = useNavigate()
     const {currentUser} = useSelector((state) => state.users)
@@ -21,7 +22,8 @@ const Profile = () => {
             <div>
                 email: {currentUser.email}
             </div>
-            <PlaylistsInProfile/>
+                <PlaylistsInProfile/>
+                <ProfileFollowing />
             <button
                 className="btn btn-danger float-end pt-2"
                 onClick={handleLogoutBtn}>
