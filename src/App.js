@@ -24,7 +24,7 @@ import PlaylistDetail from "./playlist/playlist-detail";
 import { Home } from "./home/home";
 import whosReducer from "./home/who-reducer.js";
 import SongSearch from "./playlist/search-song";
-import reviewsReducer from "./reviews/reviews-reducer";
+import reviewsReducer from "./reviews/reviews-reducer.js";
 const store = configureStore({
   reducer: {
       tracks: musicReducer,

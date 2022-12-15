@@ -1,12 +1,32 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {findReviewsByUserThunk} from "../reviews/reviews-thunk";
 import {useLocation} from "react-router";
+import {Link} from "react-router-dom";
+import {getSongByIdSpotify} from "../music_search/music-service";
+import {getSongByIdSpotifyThunk} from "../music_search/music-thunks";
 
+const SongDetails = ({review = "WHAT A COOL SONG!!", song = "0AzD1FEuvkXP1verWfaZdv"}) => {
+    const {details} = useSelector((state) => state.tracks);
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getSongByIdSpotifyThunk(song))
+    }, [])
+
+    return (
+        <li className="list-group-item">
+            {review}
+            <Link to={`/details/${song}`} className="float-end">
+                {details.name}
+            </Link>
+        </li>
+    )
+}
 
 const ProfileReviews = () => {
     const {currentUser} = useSelector((state) => state.users);
-    const {reviews} = useSelector((state) => state.reviews);
+    const {reviews_by_users} = useSelector((state) => state.reviews);
 
     const dispatch = useDispatch();
     const path = useLocation().pathname;
@@ -21,13 +41,11 @@ const ProfileReviews = () => {
         dispatch(findReviewsByUserThunk(uid))
     }, [])
 
-    // console.log(reviews.reviews_by_users);
-
     return (
         <>
             <h1 className="pt-3">Reviews</h1>
             <ul className="list-group">
-                {reviews.map((r) => <li className="list-group-item">{r.review}</li> )}
+                {reviews_by_users.map((r) => <SongDetails key={r._id} review={r.review} song={r.song}/>)}
             </ul>
         </>
     )
