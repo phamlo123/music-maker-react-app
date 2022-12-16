@@ -7,11 +7,12 @@ import {getSongByIdSpotify} from "../music_search/music-service";
 import {getSongByIdSpotifyThunk} from "../music_search/music-thunks";
 
 const SongDetails = ({review = "WHAT A COOL SONG!!", song = "0AzD1FEuvkXP1verWfaZdv"}) => {
+    console.log(song)
     return (
         <li className="list-group-item">
-            
-            {review}
-            
+            <Link to={`/details/${song}`}>
+                {review}
+            </Link>
         </li>
     )
 }

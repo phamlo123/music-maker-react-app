@@ -19,6 +19,7 @@ const PublicProfile = () => {
     return(
         <>
             <h1> Welcome to {publicProfile && publicProfile.username} public profile page</h1>
+            
             <PlaylistsInProfile/>
             <ProfileReviews />
             <ProfileFollowing />

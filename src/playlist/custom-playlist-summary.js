@@ -14,7 +14,7 @@ const CustomPlaylists = () => {
         currentUser && dispatch(findFeaturedPlaylistsThunk())
     }, [])
     return(
-        <>
+        <div>
             
             {
                 currentUser &&
@@ -66,10 +66,16 @@ const CustomPlaylists = () => {
                 </div>
                 
                 <div className="list-group">
-                    <li className="list-group-item">
-                        <h1>Featured Playlists</h1>
-                    </li>
                     {
+                        currentUser.featured && 
+                        <li className="list-group-item">
+                        <h1>Featured Playlists</h1>
+                        </li>
+                    }
+                    
+                    
+                    { 
+                        currentUser.featured && 
                         featuredPlaylists.map((p) =>
                         <PlaylistSummaryItem key={p._id} playlist={p}/>
                         )
@@ -78,7 +84,7 @@ const CustomPlaylists = () => {
                 
 
             </div>
-        </>
+        </div>
     )
 }
 

@@ -46,6 +46,7 @@ function App() {
                 <Navigation/>
                 <Routes>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/home" element={<Home/>}/>
                 <Route path="/users" element={<Users/>}/>
                 <Route path="/search" element={<SongSearch/>}/>
                 <Route path="/login" element={<Login/>}/>

@@ -30,7 +30,7 @@ const Profile = () => {
                 email: {currentUser.email}
                 <ul className="list-group">
                     <li className="list-group-item">
-                        <input className="form-control w-75"
+                        <input className="form-control w-10"
                             onChange={(e) => {
                                 setSearchTerm(e.target.value)
                             }}

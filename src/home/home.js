@@ -15,7 +15,9 @@ export const Home = () => {
     return(
         <>
             <PlaylistStuff/>
+            <div className="mt-2"></div>
             {currentUser && <WhoToFollowList/>}
+            <div className="mt-2"></div>
             {currentUser && <FolloweesList/>}
         </>
     )
