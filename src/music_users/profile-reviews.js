@@ -7,19 +7,11 @@ import {getSongByIdSpotify} from "../music_search/music-service";
 import {getSongByIdSpotifyThunk} from "../music_search/music-thunks";
 
 const SongDetails = ({review = "WHAT A COOL SONG!!", song = "0AzD1FEuvkXP1verWfaZdv"}) => {
-    const {details} = useSelector((state) => state.tracks);
-
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getSongByIdSpotifyThunk(song))
-    }, [])
-
     return (
         <li className="list-group-item">
+            
             {review}
-            <Link to={`/details/${song}`} className="float-end">
-                {details.name}
-            </Link>
+            
         </li>
     )
 }
@@ -27,7 +19,7 @@ const SongDetails = ({review = "WHAT A COOL SONG!!", song = "0AzD1FEuvkXP1verWfa
 const ProfileReviews = () => {
     const {currentUser} = useSelector((state) => state.users);
     const {reviews_by_users} = useSelector((state) => state.reviews);
-
+    console.log(reviews_by_users)
     const dispatch = useDispatch();
     const path = useLocation().pathname;
     const parts = path.split("/")

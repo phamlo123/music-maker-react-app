@@ -1,11 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {
+    editEmailThunk,
     findAllUsersThunk,
     findUserByIdThunk,
     loginThunk,
     logoutThunk,
     profileThunk,
-    registerThunk
+    registerThunk,
+    
 } from "./music-users-thunk";
 
 const usersReducer = createSlice({
@@ -17,6 +19,9 @@ const usersReducer = createSlice({
         publicProfile: null
     },
     extraReducers: {
+        [editEmailThunk.fulfilled]: (state, action) => {
+            state.currentUser = action.payload
+        },
         [findUserByIdThunk.fulfilled]: (state, action) => {
             state.publicProfile = action.payload
         },
@@ -26,6 +31,7 @@ const usersReducer = createSlice({
         [profileThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
         },
+     
         [registerThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload
         },
@@ -35,7 +41,7 @@ const usersReducer = createSlice({
         [findAllUsersThunk.fulfilled]: (state, action) => {
             state.users = action.payload
             state.loading = false
-        }
+        },
     },
     reducers: {
         

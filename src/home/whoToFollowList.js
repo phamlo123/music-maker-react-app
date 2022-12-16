@@ -3,6 +3,8 @@ import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import { getWhoToFollowThunk, followThunk } from "./who-thunk.js";
+import { Link } from "react-router-dom";
+
 const WhoToFollowListItem = (
  {
    who = { username: 'NASA', _id: "ud"}
@@ -15,8 +17,10 @@ const WhoToFollowListItem = (
   <li className="list-group-item">
    <div className="row">
     <div className="col-10">
-        <div className="fw-bold">{who.username}</div>
-    </div>
+    <Link to={`/profile/${who._id}`}>
+                                {who.username}
+    </Link>
+          </div>
     <div className="col-2">
         <button className="btn btn-primary rounded-pill float-end" onClick={() => {dispatch(followThunk(a))}}>Follow</button>
     </div>

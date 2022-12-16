@@ -2,11 +2,11 @@ import {useParams} from "react-router";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {findUserByIdThunk} from "./music-users-thunk";
-import PlaylistsInProfile from "../playlist/playlists-in-profile";
-import {Link} from "react-router-dom";
+import PlaylistsInPublicProfile from "../playlist/playlists-in-public-profile"
 import React from "react";
 import ProfileFollowing from "./profile-following";
 import ProfileReviews from "./profile-reviews";
+import PlaylistsInProfile from "../playlist/playlists-in-profile";
 const PublicProfile = () => {
     const {uid} = useParams()
     const {publicProfile} = useSelector((state) => state.users)
@@ -22,6 +22,7 @@ const PublicProfile = () => {
             <PlaylistsInProfile/>
             <ProfileReviews />
             <ProfileFollowing />
+            <PlaylistsInPublicProfile/>
         </>
     )
 }

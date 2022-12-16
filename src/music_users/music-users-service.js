@@ -5,6 +5,13 @@ const BASE_API_URL = 'http://localhost:4000'
 
 const api = axios.create({withCredentials: true});
 
+
+export const editEmail = async (uid, email) => {
+    const response = await api.post(`${USER_API_URL}/${uid}`, {email: email})
+    const user = response.data
+    return user
+}
+
 export const findUserById = async (uid) => {
     const response = await api.get(`${USER_API_URL}/${uid}`)
     const user = response.data
@@ -30,6 +37,9 @@ export const profile = async () => {
     const response = await api.post(`${BASE_API_URL}/profile`)
     return response.data
 }
+
+
+
 
 export const findAllUsers = async () => {
     const response = await axios.get(USER_API_URL)

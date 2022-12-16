@@ -1,5 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {createUser, findAllUsers, findUserById, login, logout, profile, register} from "./music-users-service";
+import {createUser, findAllUsers, findUserById, login, logout, profile, register, editEmail} from "./music-users-service";
+
+
 
 
 export const logoutThunk = createAsyncThunk(
@@ -36,3 +38,10 @@ export const createUserThunk = createAsyncThunk(
     'createUser',
     async () => await createUser()
 )
+
+export const editEmailThunk = createAsyncThunk(
+    'editEmail',
+    async (params) => await editEmail(params.uid, params.email)
+)
+
+

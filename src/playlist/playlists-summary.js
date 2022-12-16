@@ -1,10 +1,12 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {createPlaylistThunk, deletePlaylistThunk, findAllPlaylistThunk, addSongToPlaylistThunk, removeSongFromPlaylistThunk} from "./playlist-thunks";
+import {createPlaylistThunk, deletePlaylistThunk, findFeaturedPlaylistsThunk, findAllPlaylistThunk, addSongToPlaylistThunk, removeSongFromPlaylistThunk} from "./playlist-thunks";
 import React from "react";
 import PlaylistSummaryItem from "./playlist-summary-item";
+
 const Playlists = () => {
     const {currentUser} = useSelector((state) => state.users)
+    const {featuredPlaylists} = useSelector((state) => state.playlists)
     const {playlists} = useSelector((state) => state.playlists)
     const [playlist, setPlaylist] = useState({name: 'New Playlist'})
     const dispatch = useDispatch()
@@ -41,6 +43,7 @@ const Playlists = () => {
                         <PlaylistSummaryItem key={playlist._id} playlist={playlist}/>
                     )
                 }
+
 
             </ul>
         </>

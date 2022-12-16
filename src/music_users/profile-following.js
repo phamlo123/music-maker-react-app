@@ -11,7 +11,6 @@ const ProfileFolloweeItem = (
 ) => {
     const dispatch = useDispatch();
     const {currentUser} = useSelector((state) => state.users);
-    let a = {uid: currentUser._id, fid: who._id}
 
     return (
         <li className="list-group-item">

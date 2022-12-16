@@ -41,7 +41,7 @@ const PlaylistDetail = () => {
                                     Remove from Playlist
                                 </button>
                             }
-                                            
+
                         </div>
                     </li>
                     )
