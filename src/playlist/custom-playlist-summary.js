@@ -1,16 +1,17 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {createPlaylistThunk, deletePlaylistThunk, findAllPlaylistThunk, addSongToPlaylistThunk, removeSongFromPlaylistThunk, findPlaylistForUserThunk} from "./playlist-thunks";
+import {createPlaylistThunk, findFeaturedPlaylistsThunk, findAllPlaylistThunk, addSongToPlaylistThunk, removeSongFromPlaylistThunk, findPlaylistForUserThunk} from "./playlist-thunks";
 import React from "react";
 import PlaylistSummaryItem from "./playlist-summary-item";
 const CustomPlaylists = () => {
     const {currentUser} = useSelector((state) => state.users)
-    const {customPlaylists} = useSelector((state) => state.playlists)
+    const {customPlaylists, featuredPlaylists} = useSelector((state) => state.playlists)
     const [playlist, setPlaylist] = useState({name: 'New Playlist'})
     const [featured, setFeatured] = useState({featured: "false"})
     const dispatch = useDispatch()
     useEffect(() => {
         currentUser && dispatch(findPlaylistForUserThunk(currentUser._id))
+        currentUser && dispatch(findFeaturedPlaylistsThunk())
     }, [])
     return(
         <>
@@ -60,6 +61,17 @@ const CustomPlaylists = () => {
                     {
                         customPlaylists.map((playlist) =>
                             <PlaylistSummaryItem key={playlist._id} playlist={playlist}/>
+                        )
+                    }    
+                </div>
+                
+                <div className="list-group">
+                    <li className="list-group-item">
+                        <h1>Featured Playlists</h1>
+                    </li>
+                    {
+                        featuredPlaylists.map((p) =>
+                        <PlaylistSummaryItem key={p._id} playlist={p}/>
                         )
                     }    
                 </div>

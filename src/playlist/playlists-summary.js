@@ -12,7 +12,6 @@ const Playlists = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllPlaylistThunk())
-        dispatch(findFeaturedPlaylistsThunk())
     }, [])
     return(
         <>
@@ -44,11 +43,7 @@ const Playlists = () => {
                         <PlaylistSummaryItem key={playlist._id} playlist={playlist}/>
                     )
                 }
-                 {
-                    featuredPlaylists.map((p) =>
-                        <PlaylistSummaryItem key={p._id} playlist={p}/>
-                    )
-                }
+
 
             </ul>
         </>

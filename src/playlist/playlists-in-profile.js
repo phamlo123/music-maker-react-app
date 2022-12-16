@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {createPlaylistThunk, deletePlaylistThunk, findAllPlaylistThunk, addSongToPlaylistThunk, findPlaylistByUserThunk} from "./playlist-thunks";
+import {createPlaylistThunk, deletePlaylistThunk, findAllPlaylistThunk, addSongToPlaylistThunk,findFeaturedPlaylistsThunk, findPlaylistByUserThunk} from "./playlist-thunks";
 import React from "react";
 import PlaylistSummaryItem from "./playlist-summary-item";
 import { useLocation } from "react-router";
@@ -47,6 +47,7 @@ const PlaylistsInProfile = () => {
                         <PlaylistSummaryItem key={playlist._id} playlist={playlist}/>
                     )
                 }
+
 
             </ul>
         </>

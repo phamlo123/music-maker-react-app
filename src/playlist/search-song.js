@@ -7,6 +7,7 @@ import { createSongThunk } from "../music_search/music-thunks";
 import React from "react";
 import { Link } from "react-router-dom";
 import CurrentUser from "../music_users/current-music-user";
+import { useLocation } from "react-router";
 
 const SongSearch = () => {
     const [searchTerm, setSearchTerm] = useState('nothingnow')
@@ -19,6 +20,11 @@ const SongSearch = () => {
     //     dispatch(findSongByNameLocalThunk(searchTerm))
     // }, [])
     // console.log(createdSong)
+    const {pathname} = useLocation()
+    let hideButton = true;
+    if (pathname.includes("search")) {
+        hideButton = false;
+    }
     return (
         <>
             <h1>Search for Songs</h1>
@@ -56,7 +62,7 @@ const SongSearch = () => {
                                         </div>
                                     </div>
                                     <div className="col-2">
-                                        {   currentPlaylist && currentUser && currentUser.username === currentPlaylist.owner.username && 
+                                        {   currentPlaylist && currentUser && currentUser.username === currentPlaylist.owner.username && hideButton &&
                                             <button className="btn btn-primary float-end" onClick={() => {
                                                 let params = {pid: currentPlaylist._id, song: track}
                                                 dispatch(addSongToPlaylistThunk(params))
