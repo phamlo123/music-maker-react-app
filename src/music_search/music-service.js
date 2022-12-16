@@ -2,8 +2,8 @@ import axios from "axios";
 import qs from "qs";
 import {Buffer} from 'buffer';
 
-// const SEARCH_URL = 'https://omdbapi.com/?apikey=5d6aac6c&s='
-// const DETAILS_URL = 'https://omdbapi.com/?apikey=5d6aac6c&i='
+
+
 const BACKEND = 'http://localhost:4000/songs'
 export const findSongBySearchTerm = async (term) => {
     const options = {

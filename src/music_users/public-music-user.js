@@ -2,8 +2,7 @@ import {useParams} from "react-router";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {findUserByIdThunk} from "./music-users-thunk";
-import PlaylistsInProfile from "../playlist/playlists-in-profile";
-import {Link} from "react-router-dom";
+import PlaylistsInPublicProfile from "../playlist/playlists-in-public-profile"
 import React from "react";
 const PublicProfile = () => {
     const {uid} = useParams()
@@ -17,7 +16,7 @@ const PublicProfile = () => {
     return(
         <>
             <h1> Welcome to {publicProfile && publicProfile.username} public profile page</h1>
-            <PlaylistsInProfile/>
+            <PlaylistsInPublicProfile/>
         </>
     )
 }

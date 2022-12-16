@@ -7,6 +7,11 @@ export const createPlaylist = async (newPlaylist) => {
     return playlist
 }
 
+export const findFeaturedPlaylists = async () => {
+    const response = await axios.get(`${PLAYIST_API_URL}/users/`)
+    const playlist = response.data
+    return playlist
+}
 
 export const findAllPlaylist = async () => {
     const response = await axios.get(PLAYIST_API_URL)
