@@ -14,7 +14,6 @@ import ProtectedRoute from "./music_users/protected-music-user.js";
 import PublicProfile from "./music_users/public-music-user.js";
 import Profile from "./music_users/music-user-profile.js";
 import musicReducer from "./music_search/music-reducer.js";
-// import MusicSearch from "./music_search/music-search.js";
 import 'bootswatch/dist/lux/bootstrap.min.css';
 import MusicDetails from "./music_search/music-details.js";
 import Playlists from "./playlist/playlists-summary";
