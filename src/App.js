@@ -1,11 +1,10 @@
-import {BrowserRouter} from "react-router-dom";
 import Navigation from "./navigation";
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import Login from "./music_users/login-music-user";
 import Register from "./music_users/register-music-user";
 import CurrentUser from "./music_users/current-music-user.js";
-import {Routes, Route} from "react-router";
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Users from "./music_users";
 import usersReducer from "./music_users/music-users-reducer";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -40,7 +39,7 @@ function App() {
   return (
     <div className="container mt-4 mb-4">
       <Provider store={store}>
-        <BrowserRouter>
+        <Router>
             <CurrentUser>
                 <Navigation/>
                 <Routes>
@@ -61,7 +60,7 @@ function App() {
                 <Route path="/playlists/:pid" element={<PlaylistDetail/>}/>
             </Routes>
           </CurrentUser>
-        </BrowserRouter>
+        </Router>
       </Provider>
     </div>
   );
