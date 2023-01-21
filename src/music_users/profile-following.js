@@ -1,6 +1,6 @@
 /* eslint-disable */
 import {useDispatch, useSelector} from "react-redux";
-import {useLocation} from "react-router";
+import {useLocation} from "react-router-dom";
 import React, {useEffect} from "react";
 import {getPeopleUserFollowThunk} from "../home/who-thunk";
 import {Link} from "react-router-dom";
