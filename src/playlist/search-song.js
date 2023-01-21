@@ -7,7 +7,6 @@ import { useLocation } from "react-router";
 
 const SongSearch = () => {
     const [searchTerm, setSearchTerm] = useState('nothingnow')
-    const {local_tracks} = useSelector((state) => state.tracks)
     const {currentUser} = useSelector((state) => state.users)
     const {spotify_tracks} = useSelector((state) => state.tracks)
     const {currentPlaylist} = useSelector((state) => state.playlists)

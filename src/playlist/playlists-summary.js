@@ -6,7 +6,6 @@ import PlaylistSummaryItem from "./playlist-summary-item";
 
 const Playlists = () => {
     const {currentUser} = useSelector((state) => state.users)
-    const {featuredPlaylists} = useSelector((state) => state.playlists)
     const {playlists} = useSelector((state) => state.playlists)
     const [playlist, setPlaylist] = useState({name: 'New Playlist'})
     const dispatch = useDispatch()

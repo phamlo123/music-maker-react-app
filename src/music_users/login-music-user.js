@@ -8,7 +8,6 @@ const Login = () => {
     const [username, setUsername] = useState('alice')
     const [password, setPassword] = useState('alice1234')
     const dispatch = useDispatch()
-    const navigate = useNavigate()
     const handleLoginBtn = () => {
         try {
             dispatch(loginThunk({username, password}))

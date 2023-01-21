@@ -18,7 +18,6 @@ const SongDetails = ({review = "WHAT A COOL SONG!!", song = "0AzD1FEuvkXP1verWfa
 const ProfileReviews = () => {
     const {currentUser} = useSelector((state) => state.users);
     const {reviews_by_users} = useSelector((state) => state.reviews);
-    console.log(reviews_by_users)
     const dispatch = useDispatch();
     const path = useLocation().pathname;
     const parts = path.split("/")

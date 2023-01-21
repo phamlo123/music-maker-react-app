@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {findPlaylistByUserThunk} from "./playlist-thunks";
 import React from "react";
 import PlaylistSummaryItem from "./playlist-summary-item";

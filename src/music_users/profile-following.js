@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router";
 import React, {useEffect} from "react";
-import {getPeopleUserFollowThunk, unfollowThunk} from "../home/who-thunk";
+import {getPeopleUserFollowThunk} from "../home/who-thunk";
 import {Link} from "react-router-dom";
 
 const ProfileFolloweeItem = (
