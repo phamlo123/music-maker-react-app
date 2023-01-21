@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useLocation, useNavigate} from "react-router";
+import {useLocation} from "react-router";
 import React, {useEffect} from "react";
 import {getPeopleUserFollowThunk, unfollowThunk} from "../home/who-thunk";
 import {Link} from "react-router-dom";
@@ -9,8 +9,6 @@ const ProfileFolloweeItem = (
         who = {username: 'NASA', _id: "ud", currentUserFollowing: "123"}
     }
 ) => {
-    const dispatch = useDispatch();
-    const {currentUser} = useSelector((state) => state.users);
 
     return (
         <li className="list-group-item">

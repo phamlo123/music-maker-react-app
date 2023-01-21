@@ -1,7 +1,7 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import { getWhoToFollowThunk, followThunk } from "./who-thunk.js";
 import { Link } from "react-router-dom";
 
@@ -29,12 +29,12 @@ const WhoToFollowListItem = (
  );
 };
 const WhoToFollowList = () => {
-  const {whoToFollow, followees} = useSelector((state) => state.whos);
+  const {whoToFollow} = useSelector((state) => state.whos);
   const {currentUser} = useSelector((state) => state.users);
   const dispatch = useDispatch();
   useEffect(() => {
     currentUser && dispatch(getWhoToFollowThunk(currentUser._id))
-  }, [])
+  })
 
     return(
     <ul className="list-group">

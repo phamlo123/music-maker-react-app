@@ -3,11 +3,9 @@ import React, {useEffect} from "react";
 import {findReviewsByUserThunk} from "../reviews/reviews-thunk";
 import {useLocation} from "react-router";
 import {Link} from "react-router-dom";
-import {getSongByIdSpotify} from "../music_search/music-service";
-import {getSongByIdSpotifyThunk} from "../music_search/music-thunks";
+
 
 const SongDetails = ({review = "WHAT A COOL SONG!!", song = "0AzD1FEuvkXP1verWfaZdv"}) => {
-    console.log(song)
     return (
         <li className="list-group-item">
             <Link to={`/details/${song}`}>

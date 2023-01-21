@@ -7,7 +7,6 @@ import { useLocation } from "react-router";
 const PlaylistsInPublicProfile = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {userPlaylists} = useSelector((state) => state.playlists)
-    const [playlist, setPlaylist] = useState({name: 'New Playlist'})
     const dispatch = useDispatch()
     const path = useLocation().pathname;
     const parts = path.split("/")

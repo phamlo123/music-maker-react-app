@@ -50,7 +50,7 @@ const MusicDetails = () => {
     useEffect(() => {
         dispatch(getSongByIdSpotifyThunk(key))
         dispatch(findReviewsBySongThunk(key))
-    },[])
+    })
     const handlePostReviewBtn = () => {
         dispatch(createReviewThunk({
             review,

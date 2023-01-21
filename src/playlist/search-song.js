@@ -1,12 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
-import {findSongByNameLocalThunk} from "../music_search/music-thunks";
 import { searchForSongsSpotifyThunk } from "../music_search/music-thunks";
 import { addSongToPlaylistThunk } from "./playlist-thunks";
-import { createSongThunk } from "../music_search/music-thunks";
 import React from "react";
 import { Link } from "react-router-dom";
-import CurrentUser from "../music_users/current-music-user";
 import { useLocation } from "react-router";
 
 const SongSearch = () => {

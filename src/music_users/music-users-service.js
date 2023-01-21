@@ -49,6 +49,3 @@ export const findAllUsers = async () => {
 export const createUser = () => {
 
 }
-
-const deleteUser = () => {}
-const updateUser = () => {}
