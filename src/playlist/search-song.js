@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import { searchForSongsSpotifyThunk } from "../music_search/music-thunks";
 import { addSongToPlaylistThunk } from "./playlist-thunks";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
 
