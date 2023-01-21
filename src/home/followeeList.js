@@ -1,7 +1,7 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import { getPeopleUserFollowThunk, unfollowThunk } from "./who-thunk.js";
 import { Link } from "react-router-dom";
 export const FolloweeItem = (
@@ -37,6 +37,7 @@ const FolloweesList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     currentUser && dispatch(getPeopleUserFollowThunk(currentUser._id))
+    // eslint-disable-line react-hooks/exhaustive-deps
   }, [])
     return(
     <ul className="list-group">

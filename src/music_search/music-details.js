@@ -17,6 +17,7 @@ const useAudio = (url) => {
     useEffect(() => {
         playing ? audio.play() : audio.pause();
       },
+      // eslint-disable-line react-hooks/exhaustive-deps
       [playing]
     );
   
