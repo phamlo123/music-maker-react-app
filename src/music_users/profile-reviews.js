@@ -2,7 +2,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect} from "react";
 import {findReviewsByUserThunk} from "../reviews/reviews-thunk";
-import {useLocation} from "react-router";
+import {useLocation} from "react-router-dom";
 import {Link} from "react-router-dom";
 
 

@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {createPlaylistThunk, findPlaylistByUserThunk} from "./playlist-thunks";
 import React from "react";
 import PlaylistSummaryItem from "./playlist-summary-item";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 const PlaylistsInProfile = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {userPlaylists} = useSelector((state) => state.playlists)

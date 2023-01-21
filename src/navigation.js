@@ -1,9 +1,9 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 
 const Navigation = () => {
-    // const {pathname} = useLocation()
-    const parts = []
+    let path = useLocation().pathname;
+    const parts = path.split("/");
     return(
         <ul className="nav nav-pills">
             <li className="nav-item">
