@@ -1,24 +1,25 @@
+/* eslint-disable */
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {findMovieBySearchTermThunk} from "./music-thunks";
+import {findSongBySearchTermThunk} from "./music-thunks";
 import {Link} from "react-router-dom";
-
+import React from "react";
 const MusicSearch = () => {
     const [searchTerm, setSearchTerm] = useState('')
     const {tracks} = useSelector((state) => state.tracks)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(findMovieBySearchTermThunk(searchTerm))
-    })
+        dispatch(findSongBySearchTermThunk(searchTerm))
+    }, [])
     return (
         <>
-            <h1>Music Song Search</h1>
+            <h1>Search for Songs</h1>
             <ul className="list-group">
                 <li className="list-group-item">
                     <button
                         className="btn btn-primary float-end"
                         onClick={() => {
-                            dispatch(findMovieBySearchTermThunk(searchTerm))
+                            dispatch(findSongBySearchTermThunk(searchTerm))
                         }}>Search
                     </button>
                     <input

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {useParams} from "react-router";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
@@ -11,7 +12,8 @@ const PublicProfile = () => {
  
     useEffect(() => {
         dispatch(findUserByIdThunk(uid))
-    })
+    }, [uid])
+
     return(
         <>
             <h1> Hi </h1>

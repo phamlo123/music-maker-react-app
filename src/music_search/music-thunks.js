@@ -1,11 +1,21 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {findMovieByImdbId, findMovieBySearchTerm} from "./music-service";
+import {findMovieByImdbId, findSongBySearchTerm, findSongByNameLocal, searchForSongsSpotify} from "./music-service";
 
-export const findMovieBySearchTermThunk = createAsyncThunk(
-    'findMovieBySearchTerm',
-    async (term) => await findMovieBySearchTerm(term)
+export const findSongBySearchTermThunk = createAsyncThunk(
+    'findSongBySearchTerm',
+    async (term) => await findSongBySearchTerm(term)
 )
 export const findMovieByImdbIdThunk = createAsyncThunk(
     'findMovieByImdbId',
     async (key) =>  await findMovieByImdbId(key)
+)
+
+export const findSongByNameLocalThunk = createAsyncThunk(
+    'findSongByNameLocal',
+    async (key) => await findSongByNameLocal(key)
+)
+
+export const searchForSongsSpotifyThunk = createAsyncThunk(
+    'searchForSongsSpotify',
+    async (key) => await searchForSongsSpotify(key)
 )

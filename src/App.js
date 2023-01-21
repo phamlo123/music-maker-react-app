@@ -14,15 +14,19 @@ import ProtectedRoute from "./music_users/protected-music-user.js";
 import PublicProfile from "./music_users/public-music-user.js";
 import Profile from "./music_users/music-user-profile.js";
 import musicReducer from "./music_search/music-reducer.js";
-import MusicSearch from "./music_search/music-search.js";
+// import MusicSearch from "./music_search/music-search.js";
 import MusicDetails from "./music_search/music-details.js";
-
-
+import Playlists from "./playlist/playlists-summary";
+import React from "react";
+import playlistsReducers from "./playlist/playlists-reducers";
+import PlaylistDetail from "./playlist/playlist-detail";
+import { Home } from "./home";
 
 const store = configureStore({
   reducer: {
       tracks: musicReducer,
-      users: usersReducer
+      users: usersReducer,
+      playlists: playlistsReducers
   }
 })
 
@@ -36,8 +40,9 @@ function App() {
             <CurrentUser>
                 <Navigation/>
                 <Routes>
+                <Route path="/" element={<Home/>}/>
                 <Route path="/users" element={<Users/>}/>
-                <Route path="/search" element={<MusicSearch/>}/>
+                {/* <Route path="/search" element={<MusicSearch/>}/> */}
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/profile" element={
@@ -47,6 +52,8 @@ function App() {
                 }/>
                 <Route path="/details/:key" element={<MusicDetails/>}/>
                 <Route path="/profile/:uid" element={<PublicProfile/>}/>
+                <Route path="/playlists" element={<Playlists/>}/>
+                <Route path="/playlists/:pid" element={<PlaylistDetail/>}/>
             </Routes>
           </CurrentUser>
         </BrowserRouter>

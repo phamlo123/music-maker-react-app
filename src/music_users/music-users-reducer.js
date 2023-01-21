@@ -36,6 +36,9 @@ const usersReducer = createSlice({
             state.users = action.payload
             state.loading = false
         }
+    },
+    reducers: {
+        
     }
 })
 
