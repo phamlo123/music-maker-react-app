@@ -1,13 +1,14 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {loginThunk} from "./music-users-thunk";
-import {Navigate} from "react-router";
+import {useNavigate} from "react-router";
 
 const Login = () => {
     const {currentUser} = useSelector((state) => state.users)
     const [username, setUsername] = useState('alice')
     const [password, setPassword] = useState('alice1234')
     const dispatch = useDispatch()
+    let navigate = useNavigate();
     const handleLoginBtn = () => {
         try {
             dispatch(loginThunk({username, password}))
@@ -17,7 +18,7 @@ const Login = () => {
         }
     }
     if (currentUser) {
-        return (<Navigate to={'/profile'}/>)
+        navigate('/profile');
     }
     return(
         <>

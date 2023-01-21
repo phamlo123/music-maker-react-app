@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {registerThunk} from "./music-users-thunk";
-import {Navigate} from "react-router";
+import { useNavigate } from "react-router";
 import React from "react";
 
 const Register = () => {
@@ -10,14 +10,14 @@ const Register = () => {
     const [email, setEmail] = useState('email@gmail.com')
     const [password, setPassword] = useState('alice1234')
     const [featured, setFeatured] = useState("false")
-    
+    let navigate = useNavigate();
     const dispatch = useDispatch()
     const handleRegisterBtn = () => {
         dispatch(registerThunk({username, password, email, featured}))
     }
 
     if(currentUser) {
-        return (<Navigate to={'/profile'}/>)
+        navigate("/profile")
     }
 
     return(
