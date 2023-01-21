@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const USERS_API = 'http://localhost:4000/users'
+const USERS_API = 'https://musicappnode.herokuapp.com/users'
 
 const api = axios.create({withCredentials: true});
 

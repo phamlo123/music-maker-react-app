@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const REVIEW_API = 'http://localhost:4000/songs/reviews'
-const MOVIE_REVIEWS_API = 'http://localhost:4000/songs'
-const AUTHOR_REVIEWS_API = 'http://localhost:4000/reviews'
+const REVIEW_API = 'https://musicappnode.herokuapp.com/songs/reviews'
+const MOVIE_REVIEWS_API = 'https://musicappnode.herokuapp.com/songs'
+const AUTHOR_REVIEWS_API = 'https://musicappnode.herokuapp.com/reviews'
 
 const api = axios.create({withCredentials: true});
 

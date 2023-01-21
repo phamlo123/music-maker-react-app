@@ -4,7 +4,7 @@ import {Buffer} from 'buffer';
 
 
 
-const BACKEND = 'http://localhost:4000/songs'
+const BACKEND = 'https://musicappnode.herokuapp.com/songs'
 export const findSongBySearchTerm = async (term) => {
     const options = {
         method: 'GET',

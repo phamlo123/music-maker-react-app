@@ -1,5 +1,5 @@
 import axios from "axios";
-const PLAYIST_API_URL = 'http://localhost:4000/playlists'
+const PLAYIST_API_URL = 'https://musicappnode.herokuapp.com/playlists'
 
 export const createPlaylist = async (newPlaylist) => {
     const response = await axios.post(PLAYIST_API_URL, newPlaylist)
