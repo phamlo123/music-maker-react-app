@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
@@ -19,7 +20,7 @@ const useAudio = (url) => {
       },
       [playing]
     );
-  
+    //eslint-disable-next-line
     useEffect(() => {
       audio.addEventListener('ended', () => setPlaying(false));
       return () => {

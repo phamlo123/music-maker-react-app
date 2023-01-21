@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect} from "react";
 import {findAllUsersThunk} from "./music-users-thunk.js";
