@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {loginThunk} from "./music-users-thunk";
-import {useNavigate} from "react-router";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
     const {currentUser} = useSelector((state) => state.users)

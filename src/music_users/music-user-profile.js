@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {logoutThunk} from "./music-users-thunk";
 import {useState} from "react";
-import {useNavigate} from "react-router";
+import {useNavigate} from "react-router-dom";
 import React from "react";
 import PlaylistsInProfile from "../playlist/playlists-in-profile";
 import ProfileFollowing from "./profile-following";
