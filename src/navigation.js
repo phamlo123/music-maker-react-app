@@ -3,8 +3,8 @@ import {useLocation} from "react-router";
 
 
 const Navigation = () => {
-    const {pathname} = useLocation()
-    const parts = pathname.split('/')
+    // const {pathname} = useLocation()
+    const parts = []
     return(
         <ul className="nav nav-pills">
             <li className="nav-item">
